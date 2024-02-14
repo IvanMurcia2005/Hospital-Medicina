@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medico</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!--
+    <h2>Gestion de info - Medicos</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Documento identidad</th>
+                <th>Primer nombre</th>
+                <th>Segundo nombre</th>
+                <th>Primer apellido</th>
+                <th>Segundo apellido</th>
+                <th>Celular</th>
+                <th>Correo electronico</th>
+                <th>Estado</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Persona</td>
+                <td>Individuo</td>
+                <td>Representa a una persona física.</td>
+            </tr>
+            <tr>
+                <td>Empresa</td>
+                <td>Organización</td>
+                <td>Representa a una empresa o corporación.</td>
+            </tr>
+            <tr>
+                <td>Producto</td>
+                <td>Objeto</td>
+                <td>Un artículo que se puede comprar o vender.</td>
+            </tr>
+            Puedes agregar más filas según sea necesario -->
+
+    <!-- Aquí se mostrarán los usuarios registrados -->
+
+
+
+    <div class="container">
+
+
+        <h1 class="text-center my-4">Gestion de info - Medicos</h1>
+
+        <div class="row mb-4">
+            <div class="col-md-12">
+                <h2>Registros</h2>
+                <button type="button" class="btn btn-primary mb-3" data-toggle="modal" data-target="#userModal">Registar
+                    Usuarios</button>
+                <button type="button" class="btn btn-danger mb-3" id="deleteSelectedBtn">Desabilitar Usuario</button>
+                <button type="button" class="btn btn-primary mb-3" id="deleteSelectedBtn">Editar Usuario</button>
+
+                <table id="userTable" class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Documento de Identidad</th>
+                            <th>Primer Nombre</th>
+                            <th>Segundo Nombre</th>
+                            <th>Primer Apellido</th>
+                            <th>Segundo Apellido</th>
+                            <th>Celular</th>
+                            <th>Correo</th>
+                            <th>Estado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Aquí se mostrarán los usuarios registrados -->
+                    </tbody>
+
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="userModal" tabindex="-1" role="dialog" aria-labelledby="userModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="userModalLabel">Registrar</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="userForm">
+                        <div class="form-group">
+                            <label for="id">ID:</label>
+                            <input type="text" id="id" name="id" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="document">Documento de Identidad:</label>
+                            <input type="text" id="document" name="document" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="firstName">Primer Nombre:</label>
+                            <input type="text" id="firstName" name="firstName" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="firstName">Segundo Nombre:</label>
+                            <input type="text" id="secondName" name="secondName" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Primer Apellido:</label>
+                            <input type="text" id="lastName" name="lastName" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="firstName">Segundo Apellido:</label>
+                            <input type="text" id="secondLastName" name="secondLastName" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Celular:</label>
+                            <input type="text" id="phone" name="phone" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Correo:</label>
+                            <input type="email" id="email" name="email" class="form-control" required>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">Registrar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script src="scrip.js"></script>
+
+    </tbody>
+    </table>
+</body>
+
+</html>
