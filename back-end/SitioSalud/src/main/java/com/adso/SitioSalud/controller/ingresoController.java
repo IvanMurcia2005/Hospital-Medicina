@@ -90,11 +90,6 @@ public class ingresoController {
 			ingreso.setFecha_ingreso(ingresoUpdate.getFecha_ingreso());
 			ingreso.setFecha_salida(ingresoUpdate.getFecha_salida());
 			ingreso.setEstado(ingresoUpdate.getEstado());
-			ingreso.setTelefono(ingresoUpdate.getTelefono());
-			ingreso.setCorreo(ingresoUpdate.getCorreo());
-			ingreso.setDireccion(ingresoUpdate.getDireccion());
-			ingreso.setNombre_persona_contacto(ingresoUpdate.getNombre_persona_contacto());
-			ingreso.setTelefono_persona_contacto(ingresoUpdate.getTelefono_persona_contacto());
 			
 			ingresoService.save(ingreso);
 			return new ResponseEntity<>("Guardado", HttpStatus.OK);
