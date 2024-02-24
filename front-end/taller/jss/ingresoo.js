@@ -20,8 +20,8 @@ function listarIngreso() {
         var trResgistro = document.createElement("tr");
 
         var celdaId = document.createElement("td");
-        let celdaPaciente = document.createElement("td")
-        let celdaMedico = document.createElement("td")
+        let celdaIdPaciente = document.createElement("td")
+        let celdaIdMedico = document.createElement("td")
         let celdaHabitacion = document.createElement("td")
         let celdaCama = document.createElement("td")
         let celdaFechaIngreso = document.createElement("td")
@@ -29,27 +29,33 @@ function listarIngreso() {
         let celdaEstado = document.createElement("td")
 
         let celdaOpcion = document.createElement("td");
-        let botonEditarMedico = document.createElement("button")
-        botonEditarMedico.innerHTML = "Editar"
-        botonEditarMedico.className = "btn btn-warning"
+        let botonEditarIngreso = document.createElement("button")
+        botonEditarIngreso.innerHTML = "Editar"
+        botonEditarIngreso.className = "btn btn-warning"
+        botonEditarIngreso.addEventListener("click", function() {
+            // Redirigir a otro archivo HTML
+            window.location.href = "http://127.0.0.1:5500/front-end/taller/EditarIngreso.html";
+        });
+        
+        // Agregar el botón a la celda
+        celdaOpcion.appendChild(botonEditarIngreso);
 
-        let botonDesahabilitarMedico = document.createElement("button")
-        botonDesahabilitarMedico.innerHTML = "Desahabilitar"
-        botonDesahabilitarMedico.className = "btn btn-danger"
+        let botonDesahabilitarIngreso = document.createElement("button")
+        botonDesahabilitarIngreso.innerHTML = "Desahabilitar"
+        botonDesahabilitarIngreso.className = "btn btn-danger"
 
         celdaId.innerText = result[i]["id_ingreso"];
-        celdaPaciente.innerText = result[i]["paciente"]["primer_nombre"]+" "+result[i]["paciente"]["segundo_nombre"]+" "+result[i]["paciente"]["primer_apellido"]+" "+result[i]["paciente"]["segundo_apellido"];
-        celdaMedico.innerText = result[i]["medico"]["primer_nombre"]+" "+result[i]["medico"]["segundo_nombre"]+" "+result[i]["medico"]["primer_apellido"]+" "+result[i]["medico"]["segundo_apellido"];
+        celdaIdPaciente.innerText = result[i]["id_paciente"];
+        celdaIdMedico.innerText = result[i]["id_medico"];
         celdaHabitacion.innerText = result[i]["habitacion"];
         celdaCama.innerText = result[i]["cama"];
         celdaFechaIngreso.innerText = result[i]["fecha_ingreso"];
         celdaFechaSalida.innerText = result[i]["fecha_salida"];
         celdaEstado.innerText = result[i]["estado"];
 
-
         trResgistro.appendChild(celdaId);
-        trResgistro.appendChild(celdaPaciente);
-        trResgistro.appendChild(celdaMedico);
+        trResgistro.appendChild(celdaIdPaciente);
+        trResgistro.appendChild(celdaIdMedico);
         trResgistro.appendChild(celdaHabitacion);
         trResgistro.appendChild(celdaCama);
         trResgistro.appendChild(celdaFechaIngreso);
@@ -57,10 +63,10 @@ function listarIngreso() {
         trResgistro.appendChild(celdaEstado);
 
 
-        celdaOpcion.appendChild(botonEditarMedico);
+        celdaOpcion.appendChild(botonEditarIngreso);
         trResgistro.appendChild(celdaOpcion)
 
-        celdaOpcion.appendChild(botonDesahabilitarMedico);
+        celdaOpcion.appendChild(botonDesahabilitarIngreso);
         trResgistro.appendChild(celdaOpcion)
 
         cuerpoTabla.appendChild(trResgistro);
@@ -82,13 +88,13 @@ function listarIngreso() {
 function registrarIngreso() {
 
   let formData = {
-    "paciente": document.getElementById("paciente").value,
-    "medico": document.getElementById("medico").value,
+    "id_paciente": document.getElementById("id_paciente").value,
+    "id_medico": document.getElementById("id_medico").value,
     "habitacion": document.getElementById("habitacion").value,
     "cama": document.getElementById("cama").value,
     "fecha_ingreso": document.getElementById("fecha_ingreso").value,
     "fecha_salida": document.getElementById("fecha_salida").value,
-    "estado": document.getElementById("estado").value
+    "estado": document.getElementById("estado")
 
   };
 
@@ -119,10 +125,10 @@ function registrarIngreso() {
 
 
 function validarCampos() {
-  var habitacion = document.getElementById("habitacion");
-  return validarHabitacion(habitacion);
+  var cama = document.getElementById("cama");
+  return validarCama(cama);
 }
-function validarHabitacion(cuadroNumero) {
+function validarCama(cuadroNumero) {
   /*
   numero documento 
   min=5
@@ -134,7 +140,7 @@ function validarHabitacion(cuadroNumero) {
   */
   var valor = cuadroNumero.value;
   var valido = true;
-  if (valor.length < 1 || valor.length > 2) {
+  if (valor.length < 1 || valor.length > 11) {
     valido = false
   }
 
@@ -148,3 +154,5 @@ function validarHabitacion(cuadroNumero) {
   return valido;
 
 }
+
+

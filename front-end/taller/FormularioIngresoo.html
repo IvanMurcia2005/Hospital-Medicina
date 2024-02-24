@@ -11,7 +11,7 @@
         crossorigin="anonymous"></script>
 
     <title>Añadir ingreso</title>
-    <script src="./jss/Ingreso.js"></script>
+    <script src="./jss/ingresoo.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
@@ -22,13 +22,13 @@
         <div class="row">
 
             <div class="col col-xl-6 col-12">
-                <label for="">Paciente</label>
-                <input type="text" id="paciente" class="form-control" />
+                <label for="">Id paciente</label>
+                <input type="text" id="id_paciente" class="form-control" />
             </div>
 
             <div class="col col-xl-6 col-12">
-                <label for="">Medico</label>
-                <input type="text" id="medico" class="form-control" />
+                <label for="">Id medico</label>
+                <input type="text" id="id_medico" class="form-control" />
             </div>
 
             <div class="col col-xl-6 col-12">
@@ -37,8 +37,10 @@
             </div>
             <div class="col col-xl-6 col-12">
                 <label for="">Cama</label>
-                <input type="text" id="cama" class="form-control" />
+
+                <input type="number" id="cama" step="1" class="form-control" onfocusout="validarCama(this);" />
             </div>
+
             <div class="col col-xl-6 col-12">
                 <label for="">Fecha ingreso</label>
                 <input type="text" id="fecha_ingreso" class="form-control" />
@@ -49,10 +51,11 @@
             </div>
             <div class="col col-xl-6 col-12">
                 <label for="">Estado</label>
-                <input type="text" id="estado" class="form-control" />
+                <input type="text" id="primer_apellido" class="form-control" />
             </div>
+
         </div>
-        <button class="btn btn-success" onclick="registrarIngreso();">
+        <button id="boton_enviar" class="btn btn-success" onclick="registrarIngreso();">
             Enviar
         </button>
         <button class="btn btn-secondary">Limpiar</button>

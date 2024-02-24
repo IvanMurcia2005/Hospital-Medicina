@@ -34,13 +34,13 @@ function listarPaciente() {
         let celdaEstado = document.createElement("td")
 
         let celdaOpcion = document.createElement("td");
-        let botonEditarMedico = document.createElement("button")
-        botonEditarMedico.innerHTML = "Editar"
-        botonEditarMedico.className = "btn btn-warning"
+        let botonEditarPaciente = document.createElement("button")
+        botonEditarPaciente.innerHTML = "Editar"
+        botonEditarPaciente.className = "btn btn-warning"
 
-        let botonDesahabilitarMedico = document.createElement("button")
-        botonDesahabilitarMedico.innerHTML = "Desahabilitar"
-        botonDesahabilitarMedico.className = "btn btn-danger"
+        let botonDesahabilitarPaciente = document.createElement("button")
+        botonDesahabilitarPaciente.innerHTML = "Desahabilitar"
+        botonDesahabilitarPaciente.className = "btn btn-danger"
 
         celdaId.innerText = result[i]["id_paciente"];
         celdaTipoDocumento.innerText = result[i]["tipo_documento"];
@@ -72,10 +72,10 @@ function listarPaciente() {
         trResgistro.appendChild(celdaEstado);
 
 
-        celdaOpcion.appendChild(botonEditarMedico);
+        celdaOpcion.appendChild(botonEditarPaciente);
         trResgistro.appendChild(celdaOpcion)
 
-        celdaOpcion.appendChild(botonDesahabilitarMedico);
+        celdaOpcion.appendChild(botonDesahabilitarPaciente);
         trResgistro.appendChild(celdaOpcion)
 
         cuerpoTabla.appendChild(trResgistro);

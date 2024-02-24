@@ -77,7 +77,6 @@ public class medicoController {
      }
 	
 	
-	
 	@PutMapping("/{id}")
 	public ResponseEntity<Object> update  ( @PathVariable String id_medico, @ModelAttribute("medico") medico medicoUpdate){
 		var medico= medicoService.findOne(id_medico).get();

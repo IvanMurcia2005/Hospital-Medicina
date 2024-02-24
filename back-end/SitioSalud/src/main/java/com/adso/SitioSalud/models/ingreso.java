@@ -27,7 +27,7 @@ public class ingreso {
 	private medico medico;
 	
 	
-	@Column(name="habitacion", nullable= false, length = 2)
+	@Column(name="habitacion", nullable= false, length = 20)
 	private String habitacion;
 
 	@Column(name="cama", nullable= false, length = 11)

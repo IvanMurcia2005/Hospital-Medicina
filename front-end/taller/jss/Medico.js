@@ -26,9 +26,9 @@ function listarMedico() {
         let celdaSegundoNombre = document.createElement("td")
         let celdaPrimerApellido = document.createElement("td")
         let celdaSegundoApellido = document.createElement("td")
+        let celdaTelefono = document.createElement("td")
         let celdaCorreo = document.createElement("td")
         let celdaDireccion = document.createElement("td")
-        let celdaTelefono = document.createElement("td")
         let celdaEstado = document.createElement("td")
 
         let celdaOpcion = document.createElement("td");
@@ -47,9 +47,9 @@ function listarMedico() {
         celdaSegundoNombre.innerText = result[i]["segundo_nombre"];
         celdaPrimerApellido.innerText = result[i]["primer_apellido"];
         celdaSegundoApellido.innerText = result[i]["segundo_apellido"];
+        celdaTelefono.innerText = result[i]["telefono"];
         celdaCorreo.innerText = result[i]["correo"];
         celdaDireccion.innerText = result[i]["direccion"];
-        celdaTelefono.innerText = result[i]["telefono"];
         celdaEstado.innerText = result[i]["estado"];
 
 
@@ -60,9 +60,9 @@ function listarMedico() {
         trResgistro.appendChild(celdaSegundoNombre);
         trResgistro.appendChild(celdaPrimerApellido);
         trResgistro.appendChild(celdaSegundoApellido);
+        trResgistro.appendChild(celdaTelefono);
         trResgistro.appendChild(celdaCorreo);
         trResgistro.appendChild(celdaDireccion);
-        trResgistro.appendChild(celdaTelefono);
         trResgistro.appendChild(celdaEstado);
 
 
