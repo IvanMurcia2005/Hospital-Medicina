@@ -20,28 +20,26 @@ function listarIngreso() {
         var trResgistro = document.createElement("tr");
 
         var celdaId = document.createElement("td");
-        let celdaIdPaciente = document.createElement("td")
-        let celdaIdMedico = document.createElement("td")
+        let celdaPaciente = document.createElement("td")
+        let celdaMedico = document.createElement("td")
         let celdaHabitacion = document.createElement("td")
         let celdaCama = document.createElement("td")
         let celdaFechaIngreso = document.createElement("td")
         let celdaFechaSalida = document.createElement("td")
         let celdaEstado = document.createElement("td")
 
-
         let celdaOpcion = document.createElement("td");
-        let botonEditarIngreso = document.createElement("button")
-        botonEditarIngreso.innerHTML = "Editar"
-        botonEditarIngreso.className = "btn btn-warning"
+        let botonEditarMedico = document.createElement("button")
+        botonEditarMedico.innerHTML = "Editar"
+        botonEditarMedico.className = "btn btn-warning"
 
-        let botonDesahabilitarIngreso = document.createElement("button")
-        botonDesahabilitarIngreso.innerHTML = "Desahabilitar"
-        botonDesahabilitarIngreso.className = "btn btn-danger"
+        let botonDesahabilitarMedico = document.createElement("button")
+        botonDesahabilitarMedico.innerHTML = "Desahabilitar"
+        botonDesahabilitarMedico.className = "btn btn-danger"
 
-        
         celdaId.innerText = result[i]["id_ingreso"];
-        celdaIdPaciente.innerText = result[i]["id_paciente"];
-        celdaIdMedico.innerText = result[i]["id_medico"];
+        celdaPaciente.innerText = result[i]["paciente"]["primer_nombre"]+" "+result[i]["paciente"]["segundo_nombre"]+" "+result[i]["paciente"]["primer_apellido"]+" "+result[i]["paciente"]["segundo_apellido"];
+        celdaMedico.innerText = result[i]["medico"]["primer_nombre"]+" "+result[i]["medico"]["segundo_nombre"]+" "+result[i]["medico"]["primer_apellido"]+" "+result[i]["medico"]["segundo_apellido"];
         celdaHabitacion.innerText = result[i]["habitacion"];
         celdaCama.innerText = result[i]["cama"];
         celdaFechaIngreso.innerText = result[i]["fecha_ingreso"];
@@ -50,8 +48,8 @@ function listarIngreso() {
 
 
         trResgistro.appendChild(celdaId);
-        trResgistro.appendChild(celdaIdPaciente);
-        trResgistro.appendChild(celdaIdMedico);
+        trResgistro.appendChild(celdaPaciente);
+        trResgistro.appendChild(celdaMedico);
         trResgistro.appendChild(celdaHabitacion);
         trResgistro.appendChild(celdaCama);
         trResgistro.appendChild(celdaFechaIngreso);
@@ -59,10 +57,10 @@ function listarIngreso() {
         trResgistro.appendChild(celdaEstado);
 
 
-        celdaOpcion.appendChild(botonEditarIngreso);
+        celdaOpcion.appendChild(botonEditarMedico);
         trResgistro.appendChild(celdaOpcion)
 
-        celdaOpcion.appendChild(botonDesahabilitarIngreso);
+        celdaOpcion.appendChild(botonDesahabilitarMedico);
         trResgistro.appendChild(celdaOpcion)
 
         cuerpoTabla.appendChild(trResgistro);
@@ -84,13 +82,13 @@ function listarIngreso() {
 function registrarIngreso() {
 
   let formData = {
-    "id_paciente": document.getElementById("id_paciente").value,
-    "id_medico": document.getElementById("id_medico").value,
+    "paciente": document.getElementById("paciente").value,
+    "medico": document.getElementById("medico").value,
     "habitacion": document.getElementById("habitacion").value,
     "cama": document.getElementById("cama").value,
     "fecha_ingreso": document.getElementById("fecha_ingreso").value,
     "fecha_salida": document.getElementById("fecha_salida").value,
-    "estado": document.getElementById("estado")
+    "estado": document.getElementById("estado").value
 
   };
 
@@ -121,10 +119,10 @@ function registrarIngreso() {
 
 
 function validarCampos() {
-  var cama = document.getElementById("cama");
-  return validarCama(cama);
+  var habitacion = document.getElementById("habitacion");
+  return validarHabitacion(habitacion);
 }
-function validarCama(cuadroNumero) {
+function validarHabitacion(cuadroNumero) {
   /*
   numero documento 
   min=5
@@ -136,7 +134,7 @@ function validarCama(cuadroNumero) {
   */
   var valor = cuadroNumero.value;
   var valido = true;
-  if (valor.length < 1 || valor.length > 11) {
+  if (valor.length < 1 || valor.length > 2) {
     valido = false
   }
 
@@ -150,5 +148,3 @@ function validarCama(cuadroNumero) {
   return valido;
 
 }
-
-
